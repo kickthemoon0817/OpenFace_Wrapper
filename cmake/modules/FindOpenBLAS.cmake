@@ -43,7 +43,18 @@
 #or otherwise, the contributor releases their content to the
 #license and copyright terms herein.
 
+
+# [WID] Check the target architecture
+if(CMAKE_SIZEOF_VOID_P EQUAL 8) # 64-bit
+    set(OpenBLAS_ARCH "x64")
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 4) # 32-bit
+    set(OpenBLAS_ARCH "x86")
+else()
+    message(FATAL_ERROR "Unsupported architecture detected.")
+endif()
+
 SET(Open_BLAS_INCLUDE_SEARCH_PATHS
+  ${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenBLAS/include # [WID]
   $ENV{OpenBLAS_HOME}
   $ENV{OpenBLAS_HOME}/include
   /opt/OpenBLAS/include
@@ -58,6 +69,7 @@ SET(Open_BLAS_INCLUDE_SEARCH_PATHS
 )
 
 SET(Open_BLAS_LIB_SEARCH_PATHS
+        ${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenBLAS/lib/${OpenBLAS_ARCH} # [WID]
         $ENV{OpenBLAS}cd
         $ENV{OpenBLAS}/lib
         $ENV{OpenBLAS_HOME}
@@ -76,7 +88,7 @@ SET(Open_BLAS_LIB_SEARCH_PATHS
  )
 
 FIND_PATH(OpenBLAS_INCLUDE_DIR NAMES f77blas.h PATHS ${Open_BLAS_INCLUDE_SEARCH_PATHS} NO_DEFAULT_PATH)
-FIND_LIBRARY(OpenBLAS_LIB NAMES openblas PATHS ${Open_BLAS_LIB_SEARCH_PATHS}  NO_DEFAULT_PATH)
+FIND_LIBRARY(OpenBLAS_LIB NAMES openblas libopenblas PATHS ${Open_BLAS_LIB_SEARCH_PATHS}  NO_DEFAULT_PATH)
 
 SET(OpenBLAS_FOUND ON)
 SET(OpenBLAS_INCLUDE_FOUND ON)

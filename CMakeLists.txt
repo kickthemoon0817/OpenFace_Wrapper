@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required(VERSION 3.8...3.24)
 set(CMAKE_CXX_STANDARD 17)
 
 project(OpenFace VERSION 2.0.2)
@@ -13,6 +13,11 @@ add_definitions(-DCONFIG_DIR="${CONFIG_DIR}")
 
 # make sure we'll use OpenBLAS only: there's a header file naming difference between different
 # implementations; so OpenFace wants OpenBLAS;
+
+# [WID] Add debug statements
+message(STATUS "OpenBLAS_INCLUDE_DIR: ${OpenBLAS_INCLUDE_DIR}")
+message(STATUS "OpenBLAS_LIBRARIES: ${OpenBLAS_LIBRARIES}")
+
 find_package(OpenBLAS REQUIRED)
 if ( ${OpenBLAS_FOUND} )
     MESSAGE("OpenBLAS information:")

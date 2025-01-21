@@ -33,8 +33,7 @@ target_include_directories(Utilities PUBLIC
 target_include_directories(Utilities PRIVATE ${UTILITIES_SOURCE_DIR}/include)
 target_include_directories(Utilities PUBLIC ${OpenCV_INCLUDE_DIRS})
 
-target_link_libraries(Utilities PUBLIC ${OpenCV_LIBS})
-target_link_libraries(Utilities PUBLIC dlib::dlib)
+target_link_libraries(Utilities PUBLIC ${OpenCV_LIBS} ${DLIB_LIBRARIES}) # [WID] Directly link dlib
 
 if(${Boost_FOUND})
 	target_include_directories(Utilities PUBLIC ${Boost_INCLUDE_DIRS})
