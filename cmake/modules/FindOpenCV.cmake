@@ -11,7 +11,7 @@ else()
 endif()
 
 SET(Open_CV_INCLUDE_SEARCH_PATHS
-  ${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenCV/include/opencv2
+  ${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenCV/include
 )
 
 SET(Open_CV_LIB_SEARCH_PATHS
@@ -19,8 +19,8 @@ SET(Open_CV_LIB_SEARCH_PATHS
 )
 
 
-find_path(OpenCV_INCLUDE_DIR
-    NAMES core.hpp
+find_path(OpenCV_INCLUDE_DIRS
+    NAMES opencv2/core.hpp
     PATHS ${Open_CV_INCLUDE_SEARCH_PATHS}
     NO_DEFAULT_PATH
 )
@@ -43,13 +43,15 @@ set(OpenCV_LIBRARIES
 )
 
 
-# Add debug statements
-message(STATUS "OpenCV_INCLUDE_DIR: ${OpenCV_INCLUDE_DIR}")
-message(STATUS "OpenCV_LIBRARIES: ${OpenCV_LIBRARIES}")
-message(STATUS "OpenCV_LINK_DIRECTORIES: ${OpenCV_LINK_DIRECTORIES}")
+if(NOT OpenCV_INCLUDE_DIRS)
+    message(STATUS "Coud not find OpenCV include.")
+endif()
 
+if(NOT OpenCV_LIBRARIES)
+    message(STATUS "Cound not find OpenCV lib.")
+endif()
 
-if(OpenCV_INCLUDE_DIR AND OpenCV_LIBRARIES)
+if(OpenCV_INCLUDE_DIRS AND OpenCV_LIBRARIES)
     set(OpenCV_FOUND ON)
     message(STATUS "OpenCV found successfully.")
 else()
@@ -60,7 +62,7 @@ endif()
 
 # Export
 mark_as_advanced(
-    OpenCV_INCLUDE_DIR
+    OpenCV_INCLUDE_DIRS
     OpenCV_LIBRARIES
     OpenCV_LINK_DIRECTORIES
 )

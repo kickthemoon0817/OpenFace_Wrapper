@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\CMakeFiles\eb5cef7b1811118f7c2c7aeab22bb49f\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E6F16AED-7884-3791-8BEF-5FE9CF14A752}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -15,7 +15,7 @@ endif()
 
 
 set(DLIB_INCLUDE_SEARCH_PATHS
-    ${CMAKE_SOURCE_DIR}/lib/3rdParty/dlib/include/dlib
+    ${CMAKE_SOURCE_DIR}/lib/3rdParty/dlib/include
 )
 
 set(DLIB_LIB_SEARCH_PATHS
@@ -24,8 +24,14 @@ set(DLIB_LIB_SEARCH_PATHS
 
 
 find_path(DLIB_INCLUDE_DIR
-    NAMES algs.h
+    NAMES dlib/algs.h
     PATHS ${DLIB_INCLUDE_SEARCH_PATHS}
+    NO_DEFAULT_PATH
+)
+
+find_path(DLIB_LIBRARIES_DIRS
+    Name dlib dlib.lib libdlib
+    PATHS ${DLIB_LIB_SEARCH_PATHS}
     NO_DEFAULT_PATH
 )
 
@@ -36,8 +42,6 @@ find_library(DLIB_LIB
 )
 
 
-get_filename_component(DLIB_LINK_DIRECTORY ${DLIB_LIB} DIRECTORY)
-
 set(DLIB_INCLUDE_DIRS
     ${DLIB_INCLUDE_DIR}
 )
@@ -46,15 +50,19 @@ set(DLIB_LIBRARIES
     ${DLIB_LIB}
 )
 
-set(DLIB_LINK_DIRECTORIES
-    ${DLIB_LINK_DIRECTORY}
-)
 
+SET(dlib_FOUND ON)
+SET(dlib_INCLUDE_FOUND ON)
 
-# Add debug messages
-message(STATUS "Dlib_INCLUDE_DIR: ${DLIB_INCLUDE_DIRS}")
-message(STATUS "Dlib_LIBRARIES: ${DLIB_LIBRARIES}")
-message(STATUS "Dlib_LINK_DIRECTORIES: ${DLIB_LINK_DIRECTORIES}")
+if(NOT DLIB_INCLUDE_DIRS)
+    SET(dlib_FOUND OFF)
+    message(STATUS "Could not find dlib include.")
+endif()
+
+if(NOT DLIB_LIBRARIES)
+    SET(dlib_FOUND OFF) 
+    message(STATUS "Could not find dlib libs.")
+endif()
 
 if(DLIB_INCLUDE_DIRS AND DLIB_LIBRARIES)
     set(dlib_FOUND ON)
@@ -66,8 +74,8 @@ endif()
 
 # Export variables
 mark_as_advanced(
+    dlib_FOUND
     DLIB_INCLUDE_DIRS
     DLIB_LIBRARIES
-    DLIB_LINK_DIRECTORIES
+    DLIB_LIBRARIES_DIRS
 )
-

@@ -69,26 +69,11 @@ SET(Open_BLAS_INCLUDE_SEARCH_PATHS
 )
 
 SET(Open_BLAS_LIB_SEARCH_PATHS
-        ${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenBLAS/lib/${OpenBLAS_ARCH} # [WID]
-        $ENV{OpenBLAS}cd
-        $ENV{OpenBLAS}/lib
-        $ENV{OpenBLAS_HOME}
-        $ENV{OpenBLAS_HOME}/lib
-        /opt/OpenBLAS/lib
-        /usr/local/lib64
-        /usr/local/lib
-        /lib/openblas-base
-        /lib64/
-        /lib/
-        /usr/lib/openblas-base
-        /usr/lib/x86_64-linux-gnu
-        /usr/lib64
-        /usr/lib
-		/usr/local/opt/openblas/lib
+    ${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenBLAS/lib/${OpenBLAS_ARCH} # [WID]
  )
 
 FIND_PATH(OpenBLAS_INCLUDE_DIR NAMES f77blas.h PATHS ${Open_BLAS_INCLUDE_SEARCH_PATHS} NO_DEFAULT_PATH)
-FIND_LIBRARY(OpenBLAS_LIB NAMES openblas libopenblas PATHS ${Open_BLAS_LIB_SEARCH_PATHS}  NO_DEFAULT_PATH)
+FIND_LIBRARY(OpenBLAS_LIB NAMES openblas.lib libopenblas.dll.a PATHS ${Open_BLAS_LIB_SEARCH_PATHS}  NO_DEFAULT_PATH)
 
 SET(OpenBLAS_FOUND ON)
 SET(OpenBLAS_INCLUDE_FOUND ON)
@@ -107,8 +92,7 @@ ENDIF()
 
 IF (OpenBLAS_FOUND)
   IF (NOT OpenBLAS_FIND_QUIETLY)
-    MESSAGE(STATUS "Found OpenBLAS libraries: ${OpenBLAS_LIB}")
-    MESSAGE(STATUS "Found OpenBLAS include: ${OpenBLAS_INCLUDE_DIR}")
+    message(STATUS "OpenBLAS found successfully.")
   ENDIF (NOT OpenBLAS_FIND_QUIETLY)
 ELSE (OpenBLAS_FOUND)
   IF (OpenBLAS_FIND_REQUIRED)

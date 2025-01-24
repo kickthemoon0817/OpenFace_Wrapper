@@ -1,102 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\CCNF_patch_expert.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\CCNF_patch_expert.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CEN_patch_expert.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\CEN_patch_expert.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CNN_utils.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\CNN_utils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\FaceDetectorMTCNN.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\FaceDetectorMTCNN.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\LandmarkDetectionValidator.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\LandmarkDetectionValidator.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\LandmarkDetectorFunc.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\LandmarkDetectorFunc.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\LandmarkDetectorModel.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\LandmarkDetectorModel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\LandmarkDetectorParameters.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\LandmarkDetectorUtils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\LandmarkDetectorUtils.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\LandmarkDetectorParameters.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Patch_experts.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\Patch_experts.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\PAW.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\PAW.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\PDM.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\PDM.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\stdafx.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\SVR_patch_expert.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SVR_patch_expert.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\src\stdafx.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\CCNF_patch_expert.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\CCNF_patch_expert.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\CEN_patch_expert.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\CEN_patch_expert.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\CNN_utils.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\CNN_utils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\FaceDetectorMTCNN.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\FaceDetectorMTCNN.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LandmarkCoreIncludes.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\LandmarkCoreIncludes.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LandmarkDetectionValidator.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\LandmarkDetectionValidator.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LandmarkDetectorFunc.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\LandmarkDetectorFunc.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LandmarkDetectorModel.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\LandmarkDetectorModel.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LandmarkDetectorParameters.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\LandmarkDetectorParameters.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LandmarkDetectorUtils.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\LandmarkDetectorUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Patch_experts.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\Patch_experts.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PAW.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\PAW.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PDM.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\PDM.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\stdafx.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\SVR_patch_expert.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\SVR_patch_expert.h">
-      <Filter>headers</Filter>
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\include\stdafx.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="headers">
-      <UniqueIdentifier>{4c468912-7bbd-415e-a34e-3d8470740945}</UniqueIdentifier>
+    <CustomBuild Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\LandmarkDetector\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AA2C33F7-BAAF-3BDC-88E6-70D82BF7C143}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source">
-      <UniqueIdentifier>{55e469df-489d-4acb-86cf-bd2d915e69ad}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F25D796B-BDE5-34EE-ABBC-804D8EB98C91}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

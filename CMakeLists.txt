@@ -11,13 +11,14 @@ set(CMAKE_CONFIG_DIR etc/OpenFace)
 set(CONFIG_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_CONFIG_DIR}")
 add_definitions(-DCONFIG_DIR="${CONFIG_DIR}")
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
+
 # make sure we'll use OpenBLAS only: there's a header file naming difference between different
 # implementations; so OpenFace wants OpenBLAS;
 
-# [WID] Add debug statements
-message(STATUS "OpenBLAS_INCLUDE_DIR: ${OpenBLAS_INCLUDE_DIR}")
-message(STATUS "OpenBLAS_LIBRARIES: ${OpenBLAS_LIBRARIES}")
-
+# OpenBLAS
 find_package(OpenBLAS REQUIRED)
 if ( ${OpenBLAS_FOUND} )
     MESSAGE("OpenBLAS information:")
@@ -33,7 +34,10 @@ else()
 	set(OpenBLAS_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/lib/3rdParty/OpenBLAS/include")
     MESSAGE("  OpenBLAS_INCLUDE: ${OpenBLAS_INCLUDE_DIR}")
 endif()
+include_directories(${OpenBLAS_INCLUDE_DIR})
+link_libraries(${OpenBLAS_LIBRARIES})
 
+# OpenCV
 find_package( OpenCV 4.0 REQUIRED COMPONENTS core imgproc calib3d highgui objdetect)
 if(${OpenCV_FOUND})
 	MESSAGE("OpenCV information:") 
@@ -43,7 +47,10 @@ if(${OpenCV_FOUND})
 else()
     MESSAGE(FATAL_ERROR "OpenCV not found in the system.")
 endif()
+include_directories(${OpenCV_INCLUDE_DIRS})
+link_libraries(${OpenCV_LIBRARIES})
 
+# Boost
 find_package( Boost 1.5.9 COMPONENTS filesystem system)
 if(${Boost_FOUND})
 	MESSAGE("Boost information:") 
@@ -54,7 +61,25 @@ if(${Boost_FOUND})
 else()
     MESSAGE("Boost not found in the system.")
 endif()
+include_directories(${Boost_INCLUDE_DIRS})
+link_directories(${Boost_LIBRARY_DIRS})
 
+# dlib
+find_package(dlib REQUIRED)
+if(dlib_FOUND)
+    message(STATUS "dlib information:")
+    message(STATUS "  dlib version: ${DLIB_VERSION}")
+    message(STATUS "  dlib include directory: ${DLIB_INCLUDE_DIRS}")
+    message(STATUS "  dlib library: ${DLIB_LIBRARIES}")
+    message(STATUS "  dlib library DIRS: ${DLIB_LIBRARIES_DIRS}")
+else()
+    message(FATAL_ERROR "dlib not found in the system. Please ensure dlib is installed and paths are set correctly.")
+endif()
+include_directories(${DLIB_INCLUDE_DIRS})
+link_directories(${Boost_LIBRARY_DIRS})
+
+include_directories(${CMAKE_SOURCE_DIR}/lib/3rdParty)
+link_directories(${CMAKE_SOURCE_DIR}/lib/3rdParty)
 
 # Move LandmarkDetector model
 file(GLOB files "lib/local/LandmarkDetector/model/*.txt")
@@ -148,19 +173,6 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3")
     endif ()
 endif ()
-
-# dlib
-find_package(dlib 19.13)
-if(${dlib_FOUND})
-    message("dlib information:")
-    message("  dlib version: ${dlib_VERSION}")
-
-    if (NOT TARGET dlib)
-        add_library(dlib INTERFACE IMPORTED GLOBAL)
-    endif()
-else()
-    message(FATAL_ERROR "dlib not found in the system, please install dlib")
-endif()
 
 # suppress auto_ptr deprecation warnings
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")

@@ -42,15 +42,26 @@ add_library( OpenFace::LandmarkDetector ALIAS LandmarkDetector)
 
 target_include_directories(LandmarkDetector PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/OpenFace>)
+    $<INSTALL_INTERFACE:include/OpenFace>)
 
-target_include_directories(LandmarkDetector PRIVATE ${LandmarkDetector_SOURCE_DIR}/include)
-target_include_directories(LandmarkDetector PUBLIC ${OpenCV_INCLUDE_DIRS})
+target_include_directories(LandmarkDetector PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include/OpenFace>
+    $<BUILD_INTERFACE:${OpenCV_INCLUDE_DIRS}>
+    $<BUILD_INTERFACE:${DLIB_INCLUDE_DIRS}>
+	$<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
+)
 
-target_link_libraries(LandmarkDetector PUBLIC ${OpenCV_LIBS} ${OpenBLAS_LIB} ${DLIB_LIBRARIES}) # [WID] Directly link dlib
+target_link_libraries(LandmarkDetector PUBLIC 
+	${OpenCV_LIBRARIES}
+	${OpenBLAS_LIB}
+	${DLIB_LIBRARIES}							# [WID] Directly link dlib
+)
 
 if(${Boost_FOUND})
-	target_include_directories(LandmarkDetector PUBLIC ${Boost_INCLUDE_DIRS})
+	target_include_directories(LandmarkDetector PUBLIC
+		$<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
+	)
 	target_link_libraries(LandmarkDetector PUBLIC ${Boost_LIBRARIES})
 else()
 	target_link_libraries(LandmarkDetector PUBLIC stdc++fs)

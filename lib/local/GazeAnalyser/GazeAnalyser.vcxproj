@@ -1,14 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -17,150 +12,280 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5F915541-F531-434F-9C81-79F5DB58012B}</ProjectGuid>
-    <RootNamespace>GazeAnalyser</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{E1B6582B-BF9D-3778-BDD0-9EFC9B6F6F91}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>GazeAnalyser</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
-    <Import Project="..\..\3rdParty\dlib\dlib.props" />
-    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_x86.props" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
-    <Import Project="..\..\3rdParty\dlib\dlib.props" />
-    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_x86.props" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
-    <Import Project="..\..\3rdParty\dlib\dlib.props" />
-    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_64.props" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\3rdParty\OpenCV\openCV.props" />
-    <Import Project="..\..\3rdParty\dlib\dlib.props" />
-    <Import Project="..\..\3rdParty\OpenBLAS\OpenBLAS_64.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">GazeAnalyser.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">GazeAnalyser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">GazeAnalyser.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">GazeAnalyser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">GazeAnalyser.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">GazeAnalyser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">GazeAnalyser.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">GazeAnalyser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./include;../LandmarkDetector/include;../Utilities/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./include;../LandmarkDetector/include;../Utilities/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_DEBUG;_LIB;EIGEN_MPL2_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <EnableEnhancedInstructionSet>
-      </EnableEnhancedInstructionSet>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CONFIG_DIR="C:/Program Files (x86)/OpenFace/etc/OpenFace";CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>
-      </SDLCheck>
-      <AdditionalIncludeDirectories>./include;../LandmarkDetector/include;../Utilities/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CONFIG_DIR=\"C:/Program Files (x86)/OpenFace/etc/OpenFace\";CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>
-      </SDLCheck>
-      <AdditionalIncludeDirectories>./include;../LandmarkDetector/include;../Utilities/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>WIN64;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <EnableEnhancedInstructionSet>
-      </EnableEnhancedInstructionSet>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CONFIG_DIR="C:/Program Files (x86)/OpenFace/etc/OpenFace";CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CONFIG_DIR=\"C:/Program Files (x86)/OpenFace/etc/OpenFace\";CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CONFIG_DIR="C:/Program Files (x86)/OpenFace/etc/OpenFace";CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CONFIG_DIR=\"C:/Program Files (x86)/OpenFace/etc/OpenFace\";CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CONFIG_DIR="C:/Program Files (x86)/OpenFace/etc/OpenFace";CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CONFIG_DIR=\"C:/Program Files (x86)/OpenFace/etc/OpenFace\";CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\LandmarkDetector\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\..\..\local\Utilities\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenCV\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\dlib\include;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\boost\include\boost;D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\3rdParty\OpenBLAS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\GazeEstimation.h" />
+    <CustomBuild Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\PROGRAM\Python\Anaconda\envs\pt\Lib\site-packages\cmake\data\bin\cmake.exe "-SD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" "-BD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" --check-stamp-file "D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\PROGRAM\Python\Anaconda\envs\pt\Lib\site-packages\cmake\data\bin\cmake.exe "-SD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" "-BD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" --check-stamp-file "D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\PROGRAM\Python\Anaconda\envs\pt\Lib\site-packages\cmake\data\bin\cmake.exe "-SD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" "-BD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" --check-stamp-file "D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\PROGRAM\Python\Anaconda\envs\pt\Lib\site-packages\cmake\data\bin\cmake.exe "-SD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" "-BD:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper" --check-stamp-file "D:/Python ML/Extern/Metaverse Signage/ex/openface_source/OpenFace_Wrapper/lib/local/GazeAnalyser/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GazeEstimation.cpp" />
+    <ClCompile Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\src\GazeEstimation.cpp" />
+    <ClInclude Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\lib\local\GazeAnalyser\include\GazeEstimation.h" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\LandmarkDetector\LandmarkDetector.vcxproj">
-      <Project>{bdc1d107-de17-4705-8e7b-cdde8bfb2bf8}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.vcxproj">
-      <Project>{8e741ea2-9386-4cf2-815e-6f9b08991eac}</Project>
+    <ProjectReference Include="D:\Python ML\Extern\Metaverse Signage\ex\openface_source\OpenFace_Wrapper\ZERO_CHECK.vcxproj">
+      <Project>{16857405-4C72-31DF-84D9-F629F546D896}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
