@@ -1,8 +1,0 @@
-{
-    "dotnet.preferCSharpExtension": true,
-    "files.associations": {
-        "vector": "cpp",
-        "xlocale": "cpp",
-        "*.ipp": "cpp"
-    }
-}

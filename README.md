@@ -16,11 +16,11 @@ This project is based on [OpenFace](https://github.com/TadasBaltrusaitis/OpenFac
 
 This fork enhances OpenFace for **real-time applications** and **local builds** with the following modifications:
 
-### 1️. Added Embedded 3rd-Party Libraries
+### Added Embedded 3rd-Party Libraries
 
 - Allows local builds without needing to install external libraries manually.
 
-### 2️. Added FeatureExtraction_stdout.exe
+### Added FeatureExtraction_stdout.exe
 
 #### Why?
 
