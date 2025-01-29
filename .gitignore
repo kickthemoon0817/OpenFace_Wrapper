@@ -105,3 +105,12 @@ lib/local/CppInerop/Debug/
 
 # IDE-generated folders
 .idea
+.vscode/
+
+# Customed
+matlab_runners/
+matlab_version/
+model_training/
+python_scripts/
+samples/
+imgs/
