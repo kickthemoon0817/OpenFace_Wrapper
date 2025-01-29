@@ -13,19 +13,19 @@
 //       reports and manuals, must cite at least one of the following works:
 //
 //       OpenFace 2.0: Facial Behavior Analysis Toolkit
-//       Tadas Baltrušaitis, Amir Zadeh, Yao Chong Lim, and Louis-Philippe Morency
+//       Tadas Baltruï¿½aitis, Amir Zadeh, Yao Chong Lim, and Louis-Philippe Morency
 //       in IEEE International Conference on Automatic Face and Gesture Recognition, 2018  
 //
 //       Convolutional experts constrained local model for facial landmark detection.
-//       A. Zadeh, T. Baltrušaitis, and Louis-Philippe Morency,
+//       A. Zadeh, T. Baltruï¿½aitis, and Louis-Philippe Morency,
 //       in Computer Vision and Pattern Recognition Workshops, 2017.    
 //
 //       Rendering of Eyes for Eye-Shape Registration and Gaze Estimation
-//       Erroll Wood, Tadas Baltrušaitis, Xucong Zhang, Yusuke Sugano, Peter Robinson, and Andreas Bulling 
+//       Erroll Wood, Tadas Baltruï¿½aitis, Xucong Zhang, Yusuke Sugano, Peter Robinson, and Andreas Bulling 
 //       in IEEE International. Conference on Computer Vision (ICCV),  2015 
 //
 //       Cross-dataset learning and person-specific normalisation for automatic Action Unit detection
-//       Tadas Baltrušaitis, Marwa Mahmoud, and Peter Robinson 
+//       Tadas Baltruï¿½aitis, Marwa Mahmoud, and Peter Robinson 
 //       in Facial Expression Recognition and Analysis Challenge, 
 //       IEEE International Conference on Automatic Face and Gesture Recognition, 2015 
 //
@@ -110,6 +110,28 @@ namespace Utilities
 		void WriteObservationTracked();
 
 		std::string GetCSVFile() { return csv_filename; }
+
+		// Added for calling the informations
+		int GetFrameNumber() { return frame_number; }
+
+		double GetTimestamp() { return timestamp; }
+
+		double GetConfidence() { return landmark_detection_confidence; }
+
+		bool CheckSuccessed() { return landmark_detection_success; }
+
+		cv::Vec6f GetPose() { return head_pose; }
+
+		const cv::Mat_<float>& Get2DLandmarks() { return landmarks_2D; }
+		const cv::Mat_<float>& Get3DLandmarks() { return landmarks_3D; }
+
+		cv::Point3f GetGazeDirection0() { return gaze_direction0; }
+		cv::Point3f GetGazeDirection1() { return gaze_direction1; }
+
+		cv::Vec2f GetGazeAngle() { return gaze_angle; }
+
+		std::vector<cv::Point2f> Get2DEyeLandmarks() { return eye_landmarks2D; }
+		std::vector<cv::Point3f> Get3DEyeLandmarks() { return eye_landmarks3D; }
 
 	private:
 

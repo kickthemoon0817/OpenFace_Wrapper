@@ -41,7 +41,8 @@
 #include "LandmarkCoreIncludes.h" 
 #include <GazeEstimation.h> 
 #include <SequenceCapture.h> 
-#include <VisualizationUtils.h> 
+#include <VisualizationUtils.h>
+#include <RecorderOpenFace.h> 
 
 #ifndef CONFIG_DIR
 #define CONFIG_DIR "~" 
@@ -105,7 +106,6 @@ int main(int argc, char **argv)
     Utilities::FpsTracker fps_tracker;
     fps_tracker.AddFrame();
 
-
     while (true)
     {
         if (!sequence_reader.Open(arguments))
@@ -116,6 +116,14 @@ int main(int argc, char **argv)
 
         cv::Mat captured_image = sequence_reader.GetNextFrame();
 
+        Utilities::RecorderOpenFaceParameters recording_params(arguments, true, sequence_reader.IsWebcam(),
+            sequence_reader.fx, sequence_reader.fy, sequence_reader.cx, sequence_reader.cy, sequence_reader.fps);
+        if (!face_model.eye_model)
+        {
+            recording_params.setOutputGaze(false);
+        }
+        Utilities::RecorderOpenFace open_face_rec(sequence_reader.name, recording_params, arguments);
+
         INFO_STREAM("Starting tracking");
 
 
@@ -123,11 +131,10 @@ int main(int argc, char **argv)
         {
             cv::Mat_<uchar> grayscale_image = sequence_reader.GetGrayFrame();
 
-
             bool detection_success = LandmarkDetector::DetectLandmarksInVideo(captured_image, face_model, det_parameters, grayscale_image);
 
-            cv::Point3f gazeDirection0(0, 0, 0); 
-            cv::Point3f gazeDirection1(0, 0, 0); 
+            cv::Point3f gazeDirection0(0, 0, 0);
+            cv::Point3f gazeDirection1(0, 0, 0);
             cv::Vec2d gazeAngle(0, 0);
 
             if (detection_success && face_model.eye_model)
@@ -137,75 +144,50 @@ int main(int argc, char **argv)
                 gazeAngle = GazeAnalysis::GetGazeAngle(gazeDirection0, gazeDirection1);
             }
 
-            
-            cv::Vec6d pose_estimate = LandmarkDetector::GetPose(face_model, sequence_reader.fx, sequence_reader.fy, sequence_reader.cx, sequence_reader.cy);
+            // Store Observations in OpenFace Recorder
+            open_face_rec.SetObservationFrameNumber(sequence_reader.GetFrameNumber());
+            open_face_rec.SetObservationTimestamp(sequence_reader.time_stamp);
+            open_face_rec.SetObservationPose(LandmarkDetector::GetPose(face_model, sequence_reader.fx, sequence_reader.fy, sequence_reader.cx, sequence_reader.cy));
+            open_face_rec.SetObservationGaze(gazeDirection0, gazeDirection1, gazeAngle,
+                LandmarkDetector::CalculateAllEyeLandmarks(face_model),
+                LandmarkDetector::Calculate3DEyeLandmarks(face_model, sequence_reader.fx, sequence_reader.fy, sequence_reader.cx, sequence_reader.cy));
 
+            open_face_rec.SetObservationLandmarks(face_model.detected_landmarks, face_model.GetShape(sequence_reader.fx, sequence_reader.fy, sequence_reader.cx, sequence_reader.cy),
+                face_model.params_global, face_model.params_local, face_model.detection_certainty, detection_success);
 
-            fps_tracker.AddFrame();
-
-
-            // Build JSON output for this frame
-            // Example structure:
-            // {
-            //   "frame_number": 12,
-            //   "head_pose": [pose0, pose1, pose2, pose3, pose4, pose5],
-            //   "gaze_direction_0": [x, y, z],
-            //   "gaze_direction_1": [x, y, z],
-            //   "gaze_angle": [x, y],
-            //   "landmarks": [[lx, ly], [lx, ly], ...]
-            // }
+            // JSON Output
             std::ostringstream json_out;
             json_out << "{"
-                    << "\"frame_number\":" << sequence_reader.GetFrameNumber() << ",";
+                << "\"frame_number\":" << open_face_rec.GetFrameNumber() << ","
+                << "\"timestamp\":" << open_face_rec.GetTimestamp() << ",";
 
-            // Head pose: 6 values => (tx, ty, tz, rx, ry, rz)
-            json_out << "\"head_pose\":["
-                    << pose_estimate[0] << ","
-                    << pose_estimate[1] << ","
-                    << pose_estimate[2] << ","
-                    << pose_estimate[3] << ","
-                    << pose_estimate[4] << ","
-                    << pose_estimate[5]
-                    << "],";
+            // Head pose
+            cv::Vec6d pose_estimate = open_face_rec.GetPose();
+            json_out << "\"head_pose\":[" << pose_estimate[0] << "," << pose_estimate[1] << "," << pose_estimate[2] << ","
+                << pose_estimate[3] << "," << pose_estimate[4] << "," << pose_estimate[5] << "],";
 
-            // Gaze directions
-            json_out << "\"gaze_direction_0\":["
-                    << gazeDirection0.x << ","
-                    << gazeDirection0.y << ","
-                    << gazeDirection0.z
-                    << "],";
+            // Gaze
+            json_out << "\"gaze_direction_0\":[" << open_face_rec.GetGazeDirection0().x << ","
+                << open_face_rec.GetGazeDirection0().y << "," << open_face_rec.GetGazeDirection0().z << "],";
 
-            json_out << "\"gaze_direction_1\":["
-                    << gazeDirection1.x << ","
-                    << gazeDirection1.y << ","
-                    << gazeDirection1.z
-                    << "],";
+            json_out << "\"gaze_direction_1\":[" << open_face_rec.GetGazeDirection1().x << ","
+                << open_face_rec.GetGazeDirection1().y << "," << open_face_rec.GetGazeDirection1().z << "],";
 
-            // Gaze angle
-            json_out << "\"gaze_angle\":["
-                    << gazeAngle[0] << ","
-                    << gazeAngle[1]
-                    << "],";
+            json_out << "\"gaze_angle\":[" << open_face_rec.GetGazeAngle()[0] << "," << open_face_rec.GetGazeAngle()[1] << "],";
 
             // Landmarks
             json_out << "\"landmarks\":[";
-            if(detection_success)
+            cv::Mat_<float> landmarks_2D = open_face_rec.Get2DLandmarks();
+            int num_landmarks = landmarks_2D.rows / 2; // Flattened format
+
+            for (int i = 0; i < num_landmarks; ++i)
             {
-                for(int i = 0; i < face_model.detected_landmarks.rows; ++i)
-                {
-                    double x = face_model.detected_landmarks.at<double>(i, 0);
-                    double y = face_model.detected_landmarks.at<double>(i, 1);
-
-                    json_out << "[" << x << "," << y << "]";
-                    if(i < face_model.detected_landmarks.rows - 1) {
-                        json_out << ",";
-                    }
-                }
+                json_out << "[" << landmarks_2D(i, 0) << "," << landmarks_2D(i + num_landmarks, 0) << "]";
+                if (i < num_landmarks - 1) json_out << ",";
             }
-            json_out << "]"; // end of landmarks
+            json_out << "]"; // End of landmarks
 
-            json_out << "}"; // end of JSON object
-
+            json_out << "}"; // End of JSON object
             std::cout << json_out.str() << std::endl;
 
             captured_image = sequence_reader.GetNextFrame();
