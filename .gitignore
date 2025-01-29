@@ -108,9 +108,9 @@ lib/local/CppInerop/Debug/
 .vscode/
 
 # Customed
-matlab_runners/
-matlab_version/
-model_training/
-python_scripts/
-samples/
-imgs/
+.matlab_runners/
+.matlab_version/
+.model_training/
+.python_scripts/
+.samples/
+.imgs/

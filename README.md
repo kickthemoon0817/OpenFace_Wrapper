@@ -7,32 +7,32 @@
 
 This fork only done for Windows x86, so recommend to use the x86 windows version of OpenFace from the wiki.
 
-## 📌 Original Project
+## Original Project
 This project is based on [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace), an open-source facial behavior analysis toolkit developed by **Tadas Baltrušaitis**.
 
-**📖 For original installation and usage instructions, refer to the official [WIKI](https://github.com/TadasBaltrusaitis/OpenFace/wiki)**
+**For original installation and usage instructions, refer to the official [WIKI](https://github.com/TadasBaltrusaitis/OpenFace/wiki)**
 
-## 🔹 What’s New in OpenFace-RT?
+## What’s New in OpenFace-RT?
 
 This fork enhances OpenFace for **real-time applications** and **local builds** with the following modifications:
 
-### 1️⃣ Added Embedded 3rd-Party Libraries
+### 1️. Added Embedded 3rd-Party Libraries
 
 - Allows local builds without needing to install external libraries manually.
 
-### 2️⃣ Added FeatureExtraction_stdout.exe
+### 2️. Added FeatureExtraction_stdout.exe
 
-#### ✅ Why?
+#### Why?
 
 - The original FeatureExtraction.exe saves output only to **CSV files**, which is not ideal for real-time use.
 - This makes it difficult to **process facial tracking data in Python or other real-time applications**.
 
-#### ✅ New Feature: FeatureExtraction_stdout.exe
+#### New Feature: FeatureExtraction_stdout.exe
 
 - Outputs **head pose, gaze estimation, and facial landmarks directly to the standard output** (stdout).
 - This allows easy **integration with Python**, streaming applications, or other real-time tools
 
-## 🚀 How to Use FeatureExtraction_stdout.exe
+## How to Use FeatureExtraction_stdout.exe
 
 You can call FeatureExtraction_stdout.exe from Python or any command-line tool to process live facial data.
 
@@ -67,7 +67,7 @@ for line in process.stdout:
 process.wait()
 ```
 
-## 📩 Installation & Compilation
+## Installation & Compilation
 
 For compilation and installation instructions, follow the **original** [OpenFace Wiki](https://github.com/TadasBaltrusaitis/OpenFace/wiki).
 
